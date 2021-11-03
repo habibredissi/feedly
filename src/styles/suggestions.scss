@@ -1,0 +1,40 @@
+@import "./variables";
+
+.suggestions {
+  list-style: none;
+  text-align: left;
+  &__section {
+    background-color: $light_gray;
+    padding: 8px 20px;
+    color: $gray;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  &__title {
+    font-weight: 500;
+  }
+  &__subtitle {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: $gray;
+  }
+  &__item {
+    padding: 8px 20px;
+    display: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 3px;
+    display: block;
+    &:hover {
+      background: $light_gray;
+    }
+  }
+  &__nomatches {
+    text-align: center;
+    padding: 4rem;
+    color: $gray;
+    font-weight: 400;
+    font-size: 1.1rem;
+  }
+}

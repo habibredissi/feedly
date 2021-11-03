@@ -55,7 +55,9 @@ const Search = () => {
         <div className="search__box">
           <input
             id="search__input"
-            className="search__input"
+            className={`search__input ${
+              keyword.length > 0 && `search__input--active`
+            }`}
             type="text"
             name="search"
             onChange={(e) => handleKeywordChange(e.target.value)}

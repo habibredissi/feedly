@@ -29,7 +29,7 @@ header {
     border-radius: 5px;
     padding: 0 20px;
     font-size: 1rem;
-    color: #959595;
+    color: $black;
     &--active {
       border-radius: 5px 5px 0 0;
     }
@@ -39,7 +39,7 @@ header {
     }
   }
   &__title {
-    color: white;
+    color: $white;
     font-size: 1.4rem;
     margin-bottom: 2rem;
     text-align: left;

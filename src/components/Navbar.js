@@ -12,7 +12,7 @@ function Navbar() {
             alt="The logo of our brand"
             className="navbar__image"
           />
-          <h3 className="navbar__title">You Favorite Book</h3>
+          <h3 className="navbar__title">Your Favorite Book</h3>
         </div>
       </nav>
     </>

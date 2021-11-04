@@ -65,7 +65,7 @@ const Search = () => {
   return (
     <header>
       <div className="search">
-        <p className="search__title">Find Your Favorite Books</p>
+        <p className="search__title">Find your favorite books</p>
         <div className="search__box">
           <input
             id="search__input"

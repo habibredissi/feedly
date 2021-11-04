@@ -74,7 +74,7 @@ const Search = () => {
             className={`search__input ${
               showSuggestions && `search__input--active`
             }`}
-            autocomplete="off"
+            autoComplete="off"
             placeholder="Search by title or author"
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}

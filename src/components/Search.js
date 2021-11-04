@@ -71,10 +71,10 @@ const Search = () => {
             id="search__input"
             type="text"
             name="search"
+            autoComplete="off"
             className={`search__input ${
               showSuggestions && `search__input--active`
             }`}
-            autoComplete="off"
             placeholder="Search by title or author"
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}

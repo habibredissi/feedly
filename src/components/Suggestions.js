@@ -1,8 +1,12 @@
 import React from "react"
 import "../styles/suggestions.scss"
 
-const Suggestions = ({ suggestions, setKeyword, setShowSuggestions }) => {
+const Suggestions = ({ suggestions, setSearchTerm, setShowSuggestions }) => {
   const { suggestionsBooks, suggestionsAuthors } = suggestions
+
+  /** Function to render and format the list of suggestions
+   *  Depending of the type of the suggestion (Book or Author)
+   */
   const renderList = (books, type = "book") => {
     return books.map((book, index) => (
       <li
@@ -21,10 +25,13 @@ const Suggestions = ({ suggestions, setKeyword, setShowSuggestions }) => {
       </li>
     ))
   }
+
+  /** When the user selects a suggestion */
   const handleSlection = (selection) => {
     setShowSuggestions(false)
-    setKeyword(selection)
+    setSearchTerm(selection)
   }
+
   return (
     <>
       <ul className="suggestions">

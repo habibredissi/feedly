@@ -72,6 +72,7 @@ const Search = () => {
             className={`search__input ${
               showSuggestions && `search__input--active`
             }`}
+            autocomplete="off"
             type="text"
             name="search"
             placeholder="Search by title or author"

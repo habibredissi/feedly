@@ -17,10 +17,10 @@ const Search = () => {
 
   const filterBooks = (books) => {
     let matches
+    const regex = new RegExp(`${searchTerm}`, "gi")
     /** We use reduce() to create an object with 2 properties books & authors */
     /** Depending on the match (author or book title),
      *  We push the book to the right property */
-    const regex = new RegExp(`${searchTerm}`, "gi")
     matches = books.reduce(
       (accumulator, book) => {
         if (book.title.match(regex)) accumulator["suggestionsBooks"].push(book)

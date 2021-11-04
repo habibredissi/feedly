@@ -1,7 +1,7 @@
 # Explanation
 
 - I simulated a request to the server every time the user taped a new keyword. But to optimize the number of requests and therefore the data received by the front end, I used a debounce method from &quot;lodash&quot; to wait 250 milliseconds before making the request to the server.
-- Areas of improvement: It could be better to filter the data in the back end. We send to the server a request with the searched term. In other words, we make an API call with the searched term as a parameter. And the server should give us back the list of books &amp; authors that match this keyword.
+- Areas of improvement: It could be better to filter the data in the back end. We send a request with the searched term to the server. In other words, we make an API call with the searched term as a parameter. And the server should give us back the list of books &amp; authors that match this keyword.
 
 # Feedly Frontend Challenge
 

@@ -72,16 +72,16 @@ const Search = () => {
             type="text"
             name="search"
             autoComplete="off"
+            value={searchTerm}
             className={`search__input ${
               showSuggestions && `search__input--active`
             }`}
             placeholder="Search by title or author"
             onChange={(e) => setSearchTerm(e.target.value)}
-            value={searchTerm}
             onBlur={() => {
               setTimeout(() => {
                 setShowSuggestions(false)
-              }, 100)
+              }, 300)
             }}
           />
           <div

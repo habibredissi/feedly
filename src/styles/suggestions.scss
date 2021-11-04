@@ -20,12 +20,11 @@
     color: $gray;
   }
   &__item {
+    display: block;
     padding: 8px 20px;
-    display: none;
     width: 100%;
     cursor: pointer;
     border-radius: 3px;
-    display: block;
     &:hover {
       background: $light_gray;
     }

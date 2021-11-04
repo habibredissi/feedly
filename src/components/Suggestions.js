@@ -31,9 +31,9 @@ const Suggestions = ({ suggestions, setSearchTerm, setShowSuggestions }) => {
   }
 
   /** Handle the user's selection */
-  const handleSlection = (selectedBook) => {
+  const handleSlection = (selectedBookTitle) => {
+    setSearchTerm(selectedBookTitle)
     setShowSuggestions(false)
-    setSearchTerm(selectedBook)
   }
 
   return (

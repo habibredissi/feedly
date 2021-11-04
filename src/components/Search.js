@@ -20,7 +20,7 @@ const Search = () => {
   /** Make a request to the mock server */
   const makeAnApiCall = async () => {
     try {
-      // WE WILL USE THEN THE NEW VERSION OF THE MOCKED SERVER
+      // WE WILL USE THE NEW VERSION OF THE MOCKED SERVER
       // PLEASE FIND IN THE FOLDER "api/booksV2.js"
       const suggestions = await api.askListBooks(searchTerm)
       const { suggestionsBooks, suggestionsAuthors } = suggestions

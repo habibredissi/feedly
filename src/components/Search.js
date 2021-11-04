@@ -1,44 +1,33 @@
 import React, { useCallback, useEffect } from "react"
 import "../styles/search.scss"
-import Books from "../api/books"
+import Books from "../api/booksV2"
 import { useState } from "react"
 import Suggestions from "./Suggestions"
 import { debounce } from "lodash"
 
 const Search = () => {
-  const [suggestions, setSuggestions] = useState({
-    suggestionsBooks: [],
-    suggestionsAuthors: []
-  })
-  const [searchTerm, setSearchTerm] = useState("")
-  const [showSuggestions, setShowSuggestions] = useState(false)
   /** Create an instance of the Class Books */
   const api = new Books()
-
-  const filterBooks = (books) => {
-    let matches
-    const regex = new RegExp(`${searchTerm}`, "gi")
-    /** We use reduce() to create an object with 2 properties books & authors */
-    /** Depending on the match (author or book title),
-     *  We push the book to the right property */
-    matches = books.reduce(
-      (accumulator, book) => {
-        if (book.title.match(regex)) accumulator["suggestionsBooks"].push(book)
-        if (book.author.match(regex))
-          accumulator["suggestionsAuthors"].push(book)
-        return accumulator
-      },
-      { suggestionsBooks: [], suggestionsAuthors: [] }
-    )
-    setSuggestions(matches)
+  const initialSuggestions = {
+    suggestionsBooks: [],
+    suggestionsAuthors: []
   }
+  /** Initialise the State */
+  const [suggestions, setSuggestions] = useState(initialSuggestions)
+  const [searchTerm, setSearchTerm] = useState("")
+  const [showSuggestions, setShowSuggestions] = useState(false)
 
   /** Make a request to the mock server */
   const makeAnApiCall = async () => {
     try {
-      const books = await api.askListBooks()
-      if (books.length > 0) {
-        filterBooks(books)
+      // WE WILL USE THEN THE NEW VERSION OF THE MOCKED SERVER
+      // PLEASE FIND IN THE FOLDER "api/booksV2.js"
+      const suggestions = await api.askListBooks(searchTerm)
+      const { suggestionsBooks, suggestionsAuthors } = suggestions
+      if (suggestionsBooks.length > 0 || suggestionsAuthors.length > 0) {
+        setSuggestions(suggestions)
+      } else {
+        setSuggestions(initialSuggestions)
       }
     } catch (error) {
       console.error(error)
@@ -47,15 +36,14 @@ const Search = () => {
 
   /** We use lodash debounce method to optimize the number
    * of requests sent to the mocked server
-   * useCallback to update the function only when searchTerm updates
-   * */
+   * useCallback to update the function only when searchTerm updates */
+   // eslint-disable-next-line
   const debounceFetchData = useCallback(debounce(makeAnApiCall, 250), [
     searchTerm
   ])
 
   /** We call debounceFetchData inside useEffect when the value of searchTerm changes
-   *  debounceFetchData.cancel to cancel previous calls during useEffect cleanup.
-   * */
+   *  debounceFetchData.cancel to cancel previous calls during useEffect cleanup.*/
   useEffect(() => {
     searchTerm.length > 0 ? setShowSuggestions(true) : setShowSuggestions(false)
     debounceFetchData()

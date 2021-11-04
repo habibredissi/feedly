@@ -12,7 +12,7 @@ const Search = () => {
   })
   const [searchTerm, setSearchTerm] = useState("")
   const [showSuggestions, setShowSuggestions] = useState(false)
-
+  /** Create an instance of the Class Books */
   const api = new Books()
 
   const filterBooks = (books) => {
@@ -46,14 +46,14 @@ const Search = () => {
   }
 
   /** We use lodash debounce method to optimize to number
-   * of requests sent to the server
+   * of requests sent to the mocked server
    * useCallback to update the function only when searchTerm updates
    * */
   const debounceFetchData = useCallback(debounce(makeAnApiCall, 250), [
     searchTerm
   ])
 
-  /** We'll call debounceFetchData inside useEffect only when the value of searchTerm changes
+  /** We call debounceFetchData inside useEffect when the value of searchTerm changes
    *  debounceFetchData.cancel to cancel previous calls during useEffect cleanup.
    * */
   useEffect(() => {
@@ -69,12 +69,12 @@ const Search = () => {
         <div className="search__box">
           <input
             id="search__input"
+            type="text"
+            name="search"
             className={`search__input ${
               showSuggestions && `search__input--active`
             }`}
             autocomplete="off"
-            type="text"
-            name="search"
             placeholder="Search by title or author"
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}

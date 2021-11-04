@@ -9,6 +9,10 @@ const Suggestions = ({ suggestions, setSearchTerm, setShowSuggestions }) => {
    */
   const renderList = (books, type = "book") => {
     return books.map((book, index) => (
+      /** It would have been better to have a unique ID
+       *  Using index is not the best pratice but we will use it
+       *  for the sake of the exercice
+       */
       <li
         key={index}
         className="suggestions__item"
@@ -26,10 +30,10 @@ const Suggestions = ({ suggestions, setSearchTerm, setShowSuggestions }) => {
     ))
   }
 
-  /** When the user selects a suggestion */
-  const handleSlection = (selection) => {
+  /** Handle the user's selection */
+  const handleSlection = (selectedBook) => {
     setShowSuggestions(false)
-    setSearchTerm(selection)
+    setSearchTerm(selectedBook)
   }
 
   return (

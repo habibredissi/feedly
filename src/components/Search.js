@@ -35,8 +35,8 @@ const Search = () => {
   }
 
   /** We use lodash debounce method to optimize the number
-   * of requests sent to the mocked server
-   * useCallback to update the function only when searchTerm updates */
+   *  of requests sent to the mocked server
+   *  useCallback to update the function only when searchTerm updates */
    // eslint-disable-next-line
   const debounceFetchData = useCallback(debounce(makeAnApiCall, 250), [
     searchTerm

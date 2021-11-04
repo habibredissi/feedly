@@ -6,14 +6,12 @@ export default class Books {
   }
 
   /** Maybe a better solution would be to filter the data in the back end
-   *  I created a V2 of api/books.js that implements this improvment
-   */
+   *  I created a the method to implement this improvment */
   _filterBooks = (books, searchTerm) => {
     let matches
     const regex = new RegExp(`${searchTerm}`, "gi")
     /** We use reduce() to create an object with 2 properties books & authors */
-    /** Depending on the match (author or book title),
-     *  We push the book to the right property */
+    /** Depending on the match (author or book title), We push the book to the right property */
     matches = books.reduce(
       (accumulator, book) => {
         if (book.title.match(regex)) accumulator["suggestionsBooks"].push(book)

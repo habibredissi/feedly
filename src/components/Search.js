@@ -45,7 +45,7 @@ const Search = () => {
     }
   }
 
-  /** We use lodash debounce method to optimize to number
+  /** We use lodash debounce method to optimize the number
    * of requests sent to the mocked server
    * useCallback to update the function only when searchTerm updates
    * */
